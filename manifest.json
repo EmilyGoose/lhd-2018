@@ -3,13 +3,21 @@
   "version": "1.0",
   "description": "#relatable",
   "manifest_version": 2,
-
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "tabs",
+    "http://*/*"
   ],
-
-  "background": {
-    "scripts": ["scripts/background.js", "scripts/jquery.js"],
-    "persistent": false
-  }
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "scripts/jquery.js",
+        "scripts/contentScript.js"
+      ]
+    }
+  ]
 }
