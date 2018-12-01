@@ -1,8 +1,12 @@
 function save_options() {
   var percentage = document.getElementById('percent').value;
-  chrome.storage.sync.set({
-    percent: percent
-  }, function() {
+  var lines = [];
+ $.each($('websites').val().split(/\n/), function(i, line){
+   if(line && line.length){
+      lines.push(line);
+   }
+});
+   function() {
 
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
@@ -19,8 +23,6 @@ function restore_options() {
     favoriteColor: 'red',
     likesColor: true
   }, function(items) {
-    document.getElementById('color').value = items.favoriteColor;
-    document.getElementById('like').checked = items.likesColor;
   });
 
 }
