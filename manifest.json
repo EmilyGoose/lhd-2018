@@ -18,6 +18,9 @@
         "scripts/jquery.js",
         "scripts/materialize.min.js",
         "scripts/contentScript.js"
+      ],
+      "css": [
+        "css/contentStyle.css"
       ]
     }
   ],
@@ -27,5 +30,9 @@
   "browser_action": {
     "default_popup": "popup.html",
     "default_title": "Madlibify"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
   }
 }
