@@ -1,0 +1,15 @@
+{
+  "name": "Emoji replacer",
+  "version": "1.0",
+  "description": "#relatable",
+  "manifest_version": 2,
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "background": {
+    "scripts": ["scripts/background.js"],
+    "persistent": false
+  }
+}
