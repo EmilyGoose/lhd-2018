@@ -1,4 +1,4 @@
-let madlibRequest = [];
+let madlibRequest = []; //List of words to fill in
 let replacements = [];
 let newWord = "HELP";
 let nouns = 0;
@@ -35,7 +35,7 @@ $(document).ready(function () {
 });
 
 $("p").each(function () {
-    console.log($(this).text().split(' '));
+    //console.log($(this).text().split(' '));
     let txt = $(this).text();
     let element = $(this);
     $.ajax({
@@ -62,22 +62,27 @@ $("p").each(function () {
                         //Noun
                         newWords.push("_nounPlaceholder");
                         nouns++;
+                        madlibRequest.push("noun");
                     } else if (partOfSpeech == "JJ") {
                         //Adjective
                         newWords.push("_adjectivePlaceholder");
                         adjectives++;
+                        madlibRequest.push("adjective");
                     } else if (partOfSpeech == "VBG") {
                         //Verb ending in ING
                         newWords.push("_verbIngPlaceholder");
                         verbing++;
+                        madlibRequest.push("verbing");
                     } else if (partOfSpeech == "VB") {
                         //Verb
                         newWords.push("_verbPlaceholder");
                         verbs++;
+                        madlibRequest.push("verb");
                     } else if (partOfSpeech == "NNP") {
                         //Proper noun
                         newWords.push("_properNounPlaceholder");
                         properNouns++;
+                        madlibRequest.push("properNoun");
                     } else {
                         //console.log(partOfSpeech + " DID NOT MATCH ANYTHING");
                         newWords.push(originalWord);
@@ -130,6 +135,7 @@ console.log("PROPERNOUNS: " + properNouns);
 console.log("VERBS: " + verbs);
 console.log("VERBINGS: " + verbing);
 console.log("ADJECTIVES: " + adjectives);
+console.log(madlibRequest);
 
 /*Pseudocode to replace words in doc:
 for (word in wordReplacements) {
