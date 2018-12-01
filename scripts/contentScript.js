@@ -9,8 +9,6 @@ let properNouns = 0;
 
 $(document).ready(function () {
     $("body").append(`
-    <button id="myBtn">Open Modal</button>
-
     <div id="myModal" class="modal">
 
       <div class="modal-content">
@@ -22,17 +20,24 @@ $(document).ready(function () {
   `);
 
     // Get the modal
-    var modal = $("#myModal");
-    var btn = $("#myBtn");
-    var span = $(".close");
+    let span = $(".close");
 
-    btn.click(function () {
-        modal.css('display', 'inline-block');
-    });
     span.click(function () {
-        modal.css('display', 'none');
+        $("#myModal").css('display', 'none');
     });
 });
+
+//Message from popup
+chrome.runtime.onMessage.addListener(
+    function(message, sender, sendResponse) {
+        if(message.type == "newMadLib") {
+            $("#myModal").css('display', 'inline-block');
+            sendResponse("cust");
+            let types = message.wordsToReplace;
+            break;
+        }
+    }
+);
 
 $("p").each(function () {
     //console.log($(this).text().split(' '));
