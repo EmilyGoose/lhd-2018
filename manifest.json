@@ -23,5 +23,8 @@
   "web_accessible_resources": [
     "res/*"
   ],
-  "default_popup" : ["popup.html"]
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Emoji Replacer"
+  }
 }
