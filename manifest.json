@@ -17,6 +17,9 @@
       "js": [
         "scripts/jquery.js",
         "scripts/contentScript.js"
+      ],
+      "web_accessible_resources": [
+        "res/*"
       ]
     }
   ]
