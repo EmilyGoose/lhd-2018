@@ -6,6 +6,8 @@ let verbs = 0;
 let verbing = 0;
 let adjectives = 0;
 let properNouns = 0;
+let newWords = [];
+let wordType = [];
 
 $(document).ready(function () {
     $("body").append(`
@@ -13,7 +15,10 @@ $(document).ready(function () {
 
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+        <h1>Madlibify</h1>
+        <p id="prompt"></p>
+        <input type="text" id="answer" value="words">
+        <button type="button" id="next"> Next </button>
       </div>
 
     </div>
@@ -32,12 +37,22 @@ chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
         if(message.type == "newMadLib") {
             $("#myModal").css('display', 'inline-block');
-            sendResponse("cust");
-            let types = message.wordsToReplace;
+            wordType = message.wordsToReplace;
+            while(newWords.length < oldWords.length){
+              $("#prompt").text("Enter a " + wordType[i] + "...");
+            }
+
+            sendResponse(newWords);
             break;
         }
     }
 );
+
+//next
+$("#next").click(function(){
+  newWords.push($("#answer").val());
+  $("#answer").val('');
+});
 
 $("p").each(function () {
     //console.log($(this).text().split(' '));
