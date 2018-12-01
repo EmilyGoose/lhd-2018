@@ -1,31 +1,21 @@
-function save_options() {
-  var percentage = document.getElementById('percent').value;
-  var lines = [];
- $.each($('websites').val().split(/\n/), function(i, line){
-   if(line && line.length){
-      lines.push(line);
-   }
+let links = [];
+$("#add-link").click(function() {
+    let linkInput = $("#link-input");
+    let newLink = linkInput.val();
+
+    linkInput.val("");
+    links.add(newLink);
+    //Access the chrome storage
+
 });
-   function() {
 
-    var status = document.getElementById('status');
-    status.textContent = 'Options saved.';
-    setTimeout(function() {
-      status.textContent = '';
-    }, 0);
-  });
-}
+chrome.storage.onChanged.addListener(function(changes,){
+  for(var i = 0; i<=links.length; i++){
+    $("link-list").append{
+        "
+        <button class='remove-link' type='button' onclick='removeItemFromLinks("+id+")'>Remove</button>"
 
+      }
+  }();
 
-function restore_options() {
-
-  chrome.storage.sync.get({
-    favoriteColor: 'red',
-    likesColor: true
-  }, function(items) {
-  });
-
-}
-document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
-    save_options);
+});
