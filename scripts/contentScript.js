@@ -2,8 +2,8 @@ let madlibRequest = [];
 let replacements = [];
 let newWord = "HELP";
 
-$(document).ready(function(){
-  $("body").append(`
+$(document).ready(function () {
+    $("body").append(`
     <button id="myBtn">Open Modal</button>
 
     <div id="myModal" class="modal">
@@ -16,20 +16,20 @@ $(document).ready(function(){
     </div>
   `);
 
-  // Get the modal
-  var modal = $("#myModal");
-  var btn = $("#myBtn");
-  var span = $(".close");
+    // Get the modal
+    var modal = $("#myModal");
+    var btn = $("#myBtn");
+    var span = $(".close");
 
-  btn.click(function() {
-      modal.css('display', 'inline-block');
-  });
-  span.click(function() {
-      modal.css('display', 'none');
-  });
+    btn.click(function () {
+        modal.css('display', 'inline-block');
+    });
+    span.click(function () {
+        modal.css('display', 'none');
+    });
 })
 
-$("p").each(function() {
+$("p").each(function () {
     console.log($(this).text().split(' '));
     let txt = $(this).text();
     let element = $(this);
@@ -38,7 +38,7 @@ $("p").each(function() {
         url: "https://text-processing.com/api/tag/",
         data: {text: txt},
         async: false
-    }).done(function(result){
+    }).done(function (result) {
         let words = result.text.split(" ");
         let newWords = [];
         for (let i = 0; i < words.length; i++) {
