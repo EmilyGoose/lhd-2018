@@ -9,6 +9,7 @@ let properNouns = 0;
 let newWords = [];
 let wordType = [];
 let counter = 0;
+let i = 0;
 
 $(document).ready(function () {
     $("body").append(`    
@@ -33,11 +34,9 @@ $(document).ready(function () {
 //Message from popup
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
-        console.log(message);
-        console.log(sender);
         if(message.type === "newMadLib") {
             $("#myModal").css('display', 'inline-block');
-            console.log(madlibRequest);
+            //console.log(madlibRequest);
 
             i = 0;
             $("#prompt").text("Enter a " + oldWords[i] + "...");
@@ -52,9 +51,7 @@ chrome.runtime.onMessage.addListener(
 $("#next").click(function(){
   newWords.push($("#answer").val());
    $("#answer").val();
-   ++i;
-  $("#prompt").text("Enter a " + oldWords[i] + "...");
-  console.log(debughelp);
+   $("#prompt").text("Enter a " + oldWords[i] + "...");
 });
 
 $("p").each(function () {
