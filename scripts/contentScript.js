@@ -27,7 +27,7 @@ $(document).ready(function () {
     span.click(function () {
         modal.css('display', 'none');
     });
-})
+});
 
 $("p").each(function () {
     console.log($(this).text().split(' '));
