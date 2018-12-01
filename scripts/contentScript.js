@@ -12,14 +12,14 @@ let counter = 0;
 let i = 0;
 
 $(document).ready(function () {
-    $("body").append(`    
+    $("body").append(`
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
         <h1>Madlibify</h1>
         <p id="prompt"></p>
-        <input type="text" id="answer" value="words">
-        <button type="button" id="next"> Next </button>
+        <input type="text" id="answer">
+        <button id="next"> Next </button>
       </div>
     </div>`);
 
@@ -39,7 +39,7 @@ chrome.runtime.onMessage.addListener(
             //console.log(madlibRequest);
 
             i = 0;
-            $("#prompt").text("Enter a " + oldWords[i] + "...");
+            $("#prompt").text("Enter a " + madlibRequest[i] + "...");
 
             let message = "Popup Created!";
             sendResponse(message);
@@ -49,9 +49,13 @@ chrome.runtime.onMessage.addListener(
 
 //next
 $("#next").click(function(){
-  newWords.push($("#answer").val());
-   $("#answer").val();
-   $("#prompt").text("Enter a " + oldWords[i] + "...");
+  console.log("urmum");
+  let answer = $("#answer").val();
+  newWords.push(answer);
+  console.log(answer);
+  $("#answer").val('');
+  i++;
+  $("#prompt").text("Enter a " + madlibRequest[i] + "...");
 });
 
 $("p").each(function () {
