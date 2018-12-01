@@ -6,7 +6,8 @@
   "permissions": [
     "activeTab",
     "tabs",
-    "http://*/*"
+    "http://*/*",
+    "storage"
   ],
   "content_scripts": [
     {
