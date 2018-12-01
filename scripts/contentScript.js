@@ -6,18 +6,21 @@ let verbs = 0;
 let verbing = 0;
 let adjectives = 0;
 let properNouns = 0;
+let newWords = [];
+let wordType = [];
+let counter = 0;
 
 $(document).ready(function () {
-    $("body").append(`
+    $("body").append(`    
     <div id="myModal" class="modal">
-
       <div class="modal-content">
         <span class="close">&times;</span>
-        <p>Some text in the Modal..</p>
+        <h1>Madlibify</h1>
+        <p id="prompt"></p>
+        <input type="text" id="answer" value="words">
+        <button type="button" id="next"> Next </button>
       </div>
-
-    </div>
-  `);
+    </div>`);
 
     // Get the modal
     let span = $(".close");
@@ -36,10 +39,23 @@ chrome.runtime.onMessage.addListener(
             $("#myModal").css('display', 'inline-block');
             console.log(madlibRequest);
 
-            sendResponse(madlibRequest);
+            i = 0;
+            $("#prompt").text("Enter a " + oldWords[i] + "...");
+
+            let message = "Popup Created!";
+            sendResponse(message);
         }
     }
 );
+
+//next
+$("#next").click(function(){
+  newWords.push($("#answer").val());
+   $("#answer").val();
+   ++i;
+  $("#prompt").text("Enter a " + oldWords[i] + "...");
+  console.log(debughelp);
+});
 
 $("p").each(function () {
     //console.log($(this).text().split(' '));
