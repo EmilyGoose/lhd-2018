@@ -90,11 +90,7 @@ $("p").each(function () {
         element.text(newWords.join(" "));
     });
 
-    console.log("NOUNS: " + nouns);
-    console.log("VERBS: " + verbs);
-    console.log("VERBINGS: " + verbing);
-    console.log("ADJECTIVES: " + adjectives);
-    console.log("PROPERNOUNS: " + properNouns);
+
     // //Run through each word
     // for (let i = 0, len = words.length; i < len; ++i) {
     //     //Random chance of checking:
@@ -129,7 +125,11 @@ $("p").each(function () {
     */
     //Set p text content
 });
-
+console.log("NOUNS: " + nouns);
+console.log("PROPERNOUNS: " + properNouns);
+console.log("VERBS: " + verbs);
+console.log("VERBINGS: " + verbing);
+console.log("ADJECTIVES: " + adjectives);
 
 /*Pseudocode to replace words in doc:
 for (word in wordReplacements) {
