@@ -9,7 +9,7 @@
   ],
 
   "background": {
-    "scripts": ["scripts/background.js"],
+    "scripts": ["scripts/background.js", "scripts/jquery.js"],
     "persistent": false
   }
 }
