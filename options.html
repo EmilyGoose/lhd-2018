@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><title>Madlibify Options</title>
-  <script src="options.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"></head>
+<head>
+    <title>Madlibify Options</title>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/options.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+</head>
 <body style="font-family: 'Roboto Slab'">
-<h2 style="font-family: 'Roboto Slab' font-size:30px">Madlibify Settings</h2>
+<h2 style="font-family: 'Roboto Slab',serif; font-size:30px">Madlibify Settings</h2>
 
-Percentage of Words to Replace: <input type="number" name="" id="percent" value="25">
-</input>
+<label for="percent">Percentage of Words to Replace:</label><input type="number" name="" id="percent" value="25"/>
 
 <br><br>
 
-Add A Blacklisted Website:
 <br>
-<input type="text" name="" id="link" value="" size="70">
+<label for="link-input">Add A Blacklisted Website:</label><input type="text" name="" id="link-input" value="" size="70">
 
-</input>
-<button id="add">Add</button>
+<button id="add-link">Add</button>
+
+<div id="link-list">
+
+</div>
 
 <br>
 <br>
