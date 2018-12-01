@@ -30,11 +30,13 @@ $(document).ready(function () {
 //Message from popup
 chrome.runtime.onMessage.addListener(
     function(message, sender, sendResponse) {
-        if(message.type == "newMadLib") {
+        console.log(message);
+        console.log(sender);
+        if(message.type === "newMadLib") {
             $("#myModal").css('display', 'inline-block');
-            sendResponse("cust");
-            let types = message.wordsToReplace;
-            break;
+            console.log(madlibRequest);
+
+            sendResponse(madlibRequest);
         }
     }
 );
@@ -100,40 +102,6 @@ $("p").each(function () {
         element.text(newWords.join(" "));
     });
 
-
-    // //Run through each word
-    // for (let i = 0, len = words.length; i < len; ++i) {
-    //     //Random chance of checking:
-    //     if (Math.random() < 0.05) {
-    //         words[i] = "{{RANDOM PLACEHOLDER FOR:" + words[i] + "}}";
-    //         replacements.push(i);
-    //     }
-    //     //Check for numbers
-    //     if ($.isNumeric(words[i])) {
-    //         console.log("is NUMBER");
-    //         //Replaces numbers with a placeholder text
-    //         words[i] = "{{NUMBER PLACEHOLDER FOR:" + words[i] + "}}";
-    //     }
-    //     /*
-    //     if (wordIsValid) {
-    //         if (Math.random() < chance) {
-    //             madlibRequest.push(word.type());
-    //         }
-    //     }
-    //      */
-    // }
-    // for (let i = 0, len = replacements.length; i < len; ++i) {
-    //     words[replacements[i]] = newWord;
-    // }
-    /*
-    $(words).each(function () {
-        //Check for numbers
-        if ($.isNumeric(this)) {
-            console.log("is NUMBER");
-        }
-    });
-    */
-    //Set p text content
 });
 console.log("NOUNS: " + nouns);
 console.log("PROPERNOUNS: " + properNouns);
@@ -141,10 +109,3 @@ console.log("VERBS: " + verbs);
 console.log("VERBINGS: " + verbing);
 console.log("ADJECTIVES: " + adjectives);
 console.log(madlibRequest);
-
-/*Pseudocode to replace words in doc:
-for (word in wordReplacements) {
-    indexOfReplacement = words.indexOf("{{RANDOM_PLACEHOLDER")
-    words[indexOfReplacement] = word;
-}
- */
