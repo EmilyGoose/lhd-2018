@@ -16,7 +16,6 @@
       ],
       "js": [
         "scripts/jquery.js",
-        "scripts/materialize.min.js",
         "scripts/contentScript.js"
       ],
       "css": [
