@@ -1,6 +1,11 @@
 let madlibRequest = [];
 let replacements = [];
 let newWord = "HELP";
+let nouns = 0;
+let verbs = 0;
+let verbing = 0;
+let adjectives = 0;
+let properNouns = 0;
 
 $(document).ready(function () {
     $("body").append(`
@@ -49,33 +54,47 @@ $("p").each(function () {
                 if (partOfSpeech.includes(")")) {
                     partOfSpeech = partOfSpeech.slice(0, -2);
                 }
-                console.log("Pre-split: " + words[i]);
-                console.log("Original word: " + originalWord);
-                console.log("Part of speech: " + partOfSpeech);
-                if (partOfSpeech == "NN") {
-                    //Noun
-                    newWords.push("_nounPlaceholder");
-                } else if (partOfSpeech == "JJ") {
-                    //Adjective
-                    newWords.push("_adjectivePlaceholder");
-                } else if (partOfSpeech == "VBG") {
-                    //Verb ending in ING
-                    newWords.push("_verbIngPlaceholder");
-                } else if (partOfSpeech == "VB") {
-                    //Verb
-                    newWords.push("_verbPlaceholder");
-                } else if (partOfSpeech == "NNP") {
-                    //Proper noun
-                    newWords.push("_properNounPlaceholder");
+                //console.log("Pre-split: " + words[i]);
+                //console.log("Original word: " + originalWord);
+                //console.log("Part of speech: " + partOfSpeech);
+                if (Math.random() < 0.2) {
+                    if (partOfSpeech == "NN") {
+                        //Noun
+                        newWords.push("_nounPlaceholder");
+                        nouns++;
+                    } else if (partOfSpeech == "JJ") {
+                        //Adjective
+                        newWords.push("_adjectivePlaceholder");
+                        adjectives++;
+                    } else if (partOfSpeech == "VBG") {
+                        //Verb ending in ING
+                        newWords.push("_verbIngPlaceholder");
+                        verbing++;
+                    } else if (partOfSpeech == "VB") {
+                        //Verb
+                        newWords.push("_verbPlaceholder");
+                        verbs++;
+                    } else if (partOfSpeech == "NNP") {
+                        //Proper noun
+                        newWords.push("_properNounPlaceholder");
+                        properNouns++;
+                    } else {
+                        //console.log(partOfSpeech + " DID NOT MATCH ANYTHING");
+                        newWords.push(originalWord);
+                    }
                 } else {
-                    console.log(partOfSpeech + " DID NOT MATCH ANYTHING");
                     newWords.push(originalWord);
                 }
-
             }
         }
         element.text(newWords.join(" "));
     });
+
+    console.log("NOUNS: " + nouns);
+    console.log("VERBS: " + verbs);
+    console.log("VERBINGS: " + verbing);
+    console.log("ADJECTIVES: " + adjectives);
+    console.log("PROPERNOUNS: " + properNouns);
     // //Run through each word
     // for (let i = 0, len = words.length; i < len; ++i) {
     //     //Random chance of checking:
