@@ -17,7 +17,8 @@ $(document).ready(function () {
       <div class="modal-content">
         <span class="close">&times;</span>
         <h1 style="font-family: 'Roboto Slab'">Madlibify</h1>
-        <p style="font-family: 'Roboto'" id="prompt"></p>
+        <p  style="font-family: 'Roboto'" id="prompt"></p>
+        <p  style="font-family: 'Roboto'" id="wordsLeft"></p>
         <input style="font-family: 'Roboto'" type="text" id="answer">
         <button style="font-family: 'Roboto'" id="nextCust"> Next </button>
       </div>
@@ -31,6 +32,7 @@ $(document).ready(function () {
       i++;
       if(i < madlibRequest.length){
         $("#prompt").text("Enter a " + madlibRequest[i] + "...");
+        $("#wordsLeft").text("Words left: " + (madlibRequest.length - i));
         $("#answer").val('');
       } else {
         console.log(newWords);
@@ -141,6 +143,7 @@ chrome.runtime.onMessage.addListener(
 
             i = 0;
             $("#prompt").text("Enter a " + madlibRequest[i] + "...");
+            $("#wordsLeft").text("Words left: " + (madlibRequest.length - i));
 
             let message = "Popup Created!";
             sendResponse(message);
