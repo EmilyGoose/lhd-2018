@@ -19,15 +19,27 @@ $(document).ready(function () {
         <h1>Madlibify</h1>
         <p id="prompt"></p>
         <input type="text" id="answer">
-        <button id="next"> Next </button>
+        <button id="nextCust"> Next </button>
       </div>
     </div>`);
 
-    // Get the modal
-    let span = $(".close");
-
-    span.click(function () {
+    $(".close").click(function () {
         $("#myModal").css('display', 'none');
+    });
+
+    //next
+    $("#nextCust").click(function(){
+      let answer = $("#answer").val();
+      newWords.push(answer);
+      console.log(answer);
+      i++;
+      if(i < madlibRequest.length){
+        $("#prompt").text("Enter a " + madlibRequest[i] + "...");
+        $("#answer").val('');
+      } else {
+        console.log(newWords);
+      }
+
     });
 });
 
@@ -46,17 +58,6 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
-
-//next
-$("#next").click(function(){
-  console.log("urmum");
-  let answer = $("#answer").val();
-  newWords.push(answer);
-  console.log(answer);
-  $("#answer").val('');
-  i++;
-  $("#prompt").text("Enter a " + madlibRequest[i] + "...");
-});
 
 $("p").each(function () {
     //console.log($(this).text().split(' '));
