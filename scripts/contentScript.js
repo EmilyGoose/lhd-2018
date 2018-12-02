@@ -16,10 +16,10 @@ $(document).ready(function () {
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <h1>Madlibify</h1>
-        <p id="prompt"></p>
-        <input type="text" id="answer">
-        <button id="nextCust"> Next </button>
+        <h1 style="font-family: 'Roboto Slab'">Madlibify</h1>
+        <p style="font-family: 'Roboto'" id="prompt"></p>
+        <input style="font-family: 'Roboto'" type="text" id="answer">
+        <button style="font-family: 'Roboto'" id="nextCust"> Next </button>
       </div>
     </div>`);
 
