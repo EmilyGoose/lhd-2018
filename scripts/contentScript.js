@@ -23,10 +23,6 @@ $(document).ready(function () {
       </div>
     </div>`);
 
-    $(".close").click(function () {
-        $("#myModal").css('display', 'none');
-    });
-
     //next
     $("#nextCust").click(function(){
       let answer = $("#answer").val();
@@ -48,7 +44,12 @@ $(document).ready(function () {
               }
               $(this).html(words.join(" "));
           });
+        $("#prompt").text("Your madlibs has been completed!");
+        $("#answer").css('display', 'none');
+        $("#nextCust").css('display', 'none');
 
+        $("#myModal").css('display', 'none');
+        newWords = [];
       }
 
     });
