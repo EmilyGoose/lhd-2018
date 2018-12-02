@@ -38,6 +38,17 @@ $(document).ready(function () {
         $("#answer").val('');
       } else {
         console.log(newWords);
+          $("p").each(function () {
+              let words = $(this).text().split(' ');
+              for (let i = 0; i < words.length; i++) {
+                  if (words[i].includes("_noun") || words[i].includes("_verb") || words[i].includes("_verbIng") || words[i].includes("_properNoun") || words[i].includes("_adjective")) {
+                      words[i] = newWords[0];
+                      newWords.shift;
+                  }
+              }
+              $(this).text(words.join(" "));
+          });
+
       }
 
     });
