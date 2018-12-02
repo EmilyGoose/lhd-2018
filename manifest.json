@@ -20,7 +20,8 @@
         "scripts/contentScript.js"
       ],
       "css": [
-        "css/contentStyle.css"
+        "css/contentStyle.css",
+        "css/delius.css"
       ]
     }
   ],

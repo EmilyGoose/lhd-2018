@@ -38,7 +38,7 @@ $(document).ready(function () {
               let words = $(this).text().split(' ');
               for (let i = 0; i < words.length; i++) {
                   if (words[i].includes("_noun") || words[i].includes("_verb") || words[i].includes("_verbIng") || words[i].includes("_properNoun") || words[i].includes("_adjective")) {
-                      words[i] = "<span style='color:red'>" + newWords[0] + "</span>";
+                      words[i] = "<span style='color:red'; font-family: 'Delius', cursive;>" + newWords[0] + "</span>";
                       newWords.shift();
                   }
               }
@@ -147,4 +147,3 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
-
