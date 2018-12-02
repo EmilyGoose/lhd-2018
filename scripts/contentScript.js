@@ -39,7 +39,7 @@ $(document).ready(function () {
               for (let i = 0; i < words.length; i++) {
                   if (words[i].includes("_noun") || words[i].includes("_verb") || words[i].includes("_verbIng") || words[i].includes("_properNoun") || words[i].includes("_adjective")) {
                       words[i] = "<span style='color:red'>" + newWords[0] + "</span>";
-                      newWords.shift;
+                      newWords.shift();
                   }
               }
               $(this).html(words.join(" "));
