@@ -18,6 +18,7 @@ $(document).ready(function () {
         <span class="close">&times;</span>
         <h1>Madlibify</h1>
         <p id="prompt"></p>
+        <p id="wordsLeft"></p>
         <input type="text" id="answer">
         <button id="nextCust"> Next </button>
       </div>
@@ -31,6 +32,7 @@ $(document).ready(function () {
       i++;
       if(i < madlibRequest.length){
         $("#prompt").text("Enter a " + madlibRequest[i] + "...");
+        $("#wordsLeft").text("Words left: " + (madlibRequest.length - i));
         $("#answer").val('');
       } else {
         console.log(newWords);
@@ -141,6 +143,7 @@ chrome.runtime.onMessage.addListener(
 
             i = 0;
             $("#prompt").text("Enter a " + madlibRequest[i] + "...");
+            $("#wordsLeft").text("Words left: " + (madlibRequest.length - i));
 
             let message = "Popup Created!";
             sendResponse(message);
