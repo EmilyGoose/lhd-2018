@@ -52,6 +52,13 @@ $(document).ready(function () {
       }
 
     });
+
+    //Enter submits button
+    $(document).keypress(function(e) {
+      if(e.which == 13 && $("#myModal").css('display') != 'none') {
+          $("#nextCust").click();
+      }
+  });
 });
 
 //Message from popup
